@@ -1,6 +1,9 @@
 # Publication
 M. I. Radaideh, M. I. Radaideh, and A. Violi, ”A Bayesian Ensemble Approach for Improved Sustainable Aviation Fuel Modeling”. Energy Conversion and Management: X. 2025, https://doi.org/10.1016/j.ecmx.2025.101287 
 
+# Note about data used
+The ASCENT data was excluded because we do not have permission to share it. Therefore, the results will not match those in the paper.  
+
 # Installation 
 The best way to run the codes is using Anaconda. Create an Anaconda environment with Python 3.11 and install the required packages using:
 ```bash  
