@@ -11,7 +11,7 @@ conda create -n NAME python=3.11
 conda activate NAME
 pip install -r requirments.txt
 ```
-Replace NAME in the first line with any name. GPU is favorable for Bayesian Neural Network (BNN) training. Check whether Nvidia-cuda was installed using: 
+Replace NAME in the first line with any name. A GPU is favorable for training Bayesian Neural Networks (BNNs). Check whether Nvidia-cuda was installed using: 
 ```bash
 import torch
 print(torch.cuda.is_available())
@@ -36,17 +36,18 @@ To obtain the results for **Bayesian Neural Networks** run:
 ```bash
 python run_bnn.py
 ```
-The figures are saved in ```./figures/bnn/NAME/```. ```NAME``` is the name of the property (```density```, ```viscosity```, ```flash_point```). To reduce the effect of BNN stochasticity, the model was trained and tested 200 times and average of metrics and SHAP values were reported in the manuscirpt. The metrics and SHAP values for each iteration are written to ```./coeff/bnn```. The mean and standard deviation of metrics are written in the last two cells of ```./coeff/bnn/NAME_mape.csv``` files.  
+The figures are saved in ```./figures/bnn/NAME/```. ```NAME``` is the name of the property (```density```, ```viscosity```, ```flash_point```). To reduce the effect of BNN stochasticity, the model was trained and tested 200 times, and the average of metrics and SHAP values was reported in the manuscript. The metrics and SHAP values for each iteration are written to ```./coeff/bnn```. The mean and standard deviation of metrics are written in the last two cells of ```./coeff/bnn/NAME_mape.csv``` files.  
 
 ### Important for BNN Results Reproducibility 
-The BNN model used in ```torchbnn``` is stochastic, and different results will be obtained for each training and testing. The code runs the training and testing 200 times and calculates the metrics average to mitigate the effect of model stochasticity. Accordingly, it may not be possible to reproduce the exact numbers that appear in the manuscript, but the results will be close. 
+The BNN model used in ```torchbnn``` is stochastic, and different results will be obtained for each training and testing. The code runs the training and testing 200 times and calculates the average of the metrics to mitigate the effect of model stochasticity. Accordingly, it may not be possible to reproduce the exact numbers that appear in the manuscript, but the results will be close. 
 
 # Other Figures
 To produce Figure 2, run the following:
 ```bash
 python run_visual.py
 ```
-To Produce the histograms in Figures 4, 8, and 12, run the following: 
+To produce the histograms in Figures 4, 8, and 12, run the following: 
 ```bash
 python run_hist.py
 ```
+Please note that the values for column ```y_pred``` in ```./data/hist/```  and MAPE are not updated for this dataset. Currently, the original values used in the paper are still in place. The MAPE values can be updated by updating ```mape``` variable in ```run_hist.py```. 
